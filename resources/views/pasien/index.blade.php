@@ -31,15 +31,22 @@
                 <tr>
                     <td>{{ $iteration++ }}</td>
                     <td>{{ $item['nama'] }}</td>
-                    <td>{{ $item['jk'] }}</td>
+                    <td>
+                        @if($item['jk'] == 'l')
+                            Laki-laki 
+                        @else
+                            Perempuan
+                        @endif
+                    </td>
                     <td>{{ $item['tgl_lahir'] }}</td>
                     <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="#" method="POST" class="d-inline">
+                        <form action="/pasien" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
+                            <input type="hidden" value="{{ $item['id'] }}" name="id">
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
                         </form>
                     </td>

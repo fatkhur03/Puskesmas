@@ -39,5 +39,9 @@ Route::get('/dokter/create', [DokterController::class, 'create']);
 //root untuk memproses tambah dokter
 Route::post('/dokter', [DokterController::class, 'store']);
 
+//Route untuk menghapus data pasine
+Route::delete('/pasien', [PasienController::class, 'destroy']);
+
 //Route untuk menampilkan dashboard
 Route::get('/', [DashboardController::class, 'index']);
+
