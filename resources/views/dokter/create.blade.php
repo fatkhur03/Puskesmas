@@ -26,14 +26,8 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label for="alamat">Alamat</label>
-                        <textarea class="form-control" name="alamat"></textarea>
-                    </div>
-
-                    <div class="form-group mt-3">
                         <label for="jk">Jenis Kelamin</label>
                         <select class="form-control" name="jk">
-                            <option value="">--pilih--</option>
                             <option value="L">Laki-laki</option>
                             <option value="P">Perempuan</option>
                         </select>
@@ -41,13 +35,12 @@
 
                     <div class="form-group mt-3">
                         <label for="spesialis">Spesialis</label>
-                       <select name="spesialis" class="form-control">
-                            <option value="">--pilih--</option>
-                            <option value="Ilmu Bedah">Ilmu Bedah</option>
-                            <option value="Ilmu Penyakit Dalam">Ilmu Penyakit Dalam</option>
-                            <option value="Ilmu Kesehatan Mata">Ilmu Kesehatan Mata</option>
-                            <option value="Ilmu Bedah Saraf">Ilmu Bedah Saraf</option>
-                       </select>
+                        <input type="text" class="form-control" name="spesialis" value="">
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="alamat">Alamat</label>
+                        <textarea class="form-control" name="alamat"></textarea>
                     </div>
 
                     <div class="form-group mt-3">
@@ -61,4 +54,4 @@
                 </form>
 
     </div>
-    @endsection
+@endsection

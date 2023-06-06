@@ -1,9 +1,9 @@
 @extends('main')
 @section('content')
     <div class="container">
-        <h1>Daftar Dokter</h1>
+        <h1>Daftar dokter</h1>
         <br>
-        <a href="/dokter/create" class="btn btn-primary">+ Tambah Dokter</a>
+        <a href="/dokter/create" class="btn btn-primary">+ Tambah dokter</a>
         <hr>
 
         @if (session('success'))
@@ -17,9 +17,9 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
                     <th>Jenis Kelamin</th>
                     <th>Spesialis</th>
+                    <th>Alamat</th>
                     <th>No. Telp</th>
                     <th>Aksi</th>
                 </tr>
@@ -31,15 +31,22 @@
                 <tr>
                     <td>{{ $iteration++ }}</td>
                     <td>{{ $item['nama'] }}</td>
-                    <td>{{ $item['alamat'] }}</td>
-                    <td>{{ $item['jk'] }}</td>
+                    <td>
+                        @if($item['jk'] == 'l')
+                            Laki-laki 
+                        @else
+                            Perempuan
+                        @endif
+                    </td>
                     <td>{{ $item['spesialis'] }}</td>
+                    <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
                     <td>
                         <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="#" method="POST" class="d-inline">
+                        <form action="/dokter" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
+                            <input type="hidden" value="{{ $item['id'] }}" name="id">
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</button>
                         </form>
                     </td>
@@ -47,4 +54,4 @@
             </tbody>
         </table>
     </div>
-    @endsection
+@endsection
