@@ -42,7 +42,7 @@
                     <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/dokter/edit/{{  $item['id']  }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="/dokter" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
