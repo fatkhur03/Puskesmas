@@ -21,6 +21,7 @@
                     <th>Tanggal Lahir</th>
                     <th>Alamat</th>
                     <th>No. Telp</th>
+                    <th>Dokter</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -41,6 +42,7 @@
                     <td>{{ $item['tgl_lahir'] }}</td>
                     <td>{{ $item['alamat'] }}</td>
                     <td>{{ $item['telp'] }}</td>
+                    <td>{{ $item->dokter->nama}}</td>
                     <td>
                         <a href="/pasien/edit/{{  $item['id']  }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="/pasien" method="POST" class="d-inline">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,10 @@ class PasienController extends Controller
     }
 
     public function create(){
-        return view('pasien.create');
+        $dokters = Dokter::all();
+        return view('pasien.create', [
+            'dokters' => $dokters
+        ]);
     }
 
     //method untuk menyimpan form tambah pasien ke database
@@ -28,6 +32,7 @@ class PasienController extends Controller
             'tgl_lahir' => 'required|date',
             'alamat' => 'required',
             'telp' => 'required|numeric',
+            'dokter_id' => 'required'
         ]);
 
        Pasien::create([
@@ -36,6 +41,7 @@ class PasienController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
             'telp' => $request->telp,
+            'dokter_id' => $request->dokter_id,
        ]);
        return redirect('/pasien');
     }
@@ -45,8 +51,11 @@ class PasienController extends Controller
         //cari pasien berdasarkan id
         $pasien = Pasien::find($id);
 
+        $dokters = Dokter::all();
+
         return view('pasien.edit', [
-            'pasien' => $pasien
+            'pasien' => $pasien,
+            'dokters' => $dokters
         ]);
     }
 
@@ -59,6 +68,7 @@ class PasienController extends Controller
             'tgl_lahir' => 'required|date',
             'alamat' => 'required',
             'telp' => 'required|numeric',
+            'dokter_id' => 'required'
         ]);
 
         //cari pasien berdasarkan id
@@ -70,6 +80,7 @@ class PasienController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
             'telp' => $request->telp,
+            'dokter_id' => $request->dokter_id,
         ]);
 
         return redirect('/pasien')->with('success', 'Alhamdulillah data berhasil diupdate');

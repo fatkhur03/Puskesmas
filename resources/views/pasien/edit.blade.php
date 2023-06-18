@@ -49,6 +49,15 @@
                         <input type="text" class="form-control" name="telp" placeholder="Masukkan No. Telp" value="{{ $pasien->telp }}">
                     </div>
 
+                    <div class="form-group mt-3">
+                        <label for="dokter_id">Dokter</label>
+                        <select name="dokter_id" id="dokter_id" class="form-control">
+                            @foreach ($dokters as $dokter)
+                                <option value="{{ $dokter->id }}" {{ $dokter->id ==$pasien->dokter->id ? 'selected' : '' }}>{{ $dokter->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group mt-3 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>

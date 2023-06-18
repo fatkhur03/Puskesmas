@@ -43,6 +43,9 @@ Route::post('/dokter', [DokterController::class, 'store'])->middleware('auth');
 //Route untuk menghapus data pasine
 Route::delete('/pasien', [PasienController::class, 'destroy'])->middleware('auth');
 
+//Route untuk menghapus data dokter
+Route::delete('/dokter', [DokterController::class, 'destroy'])->middleware('auth');
+
 //Route untuk menampilkan dashboard
 Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 

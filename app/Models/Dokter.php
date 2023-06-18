@@ -14,4 +14,14 @@ class Dokter extends Model
 
     //deklarasikan kolom yang boleh diisi
     protected $fillable = ['nama', 'jk', 'alamat', 'spesialis', 'telp'];
+
+    // menghubungkan ke model pasien
+    // 1 dokter dapat menangani banyak pasien
+    public function pasien() {
+        // karena dokter menitipkann id ke pasien
+        // maka dokter menghubungkan has + kardinalitas
+        // kardinalitas 1 to M dari model ini kemodel lain: hasMany
+        // 1 to 1 ke model lain:hasOne
+        return $this->hasMany(Pasien::class);
+    }
 }
